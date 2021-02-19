@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 import re
 
-URL = 'https://anchor.fm/privacy'
+URL = 'Privacy Policy URL Here'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 
@@ -53,5 +53,5 @@ def protect():
 		return(item.text.strip())
 
 def main():
-	print(share())
+	print(contact(),children(),collect(),share(),party(),protect())
 main()
