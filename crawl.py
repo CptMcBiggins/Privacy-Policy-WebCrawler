@@ -22,41 +22,78 @@ def contact():
 	    if 'mailto:' in links:
 	    	print(links)
 
-# To get and print <p> tags with child or child in them
+# To get and print <p>&<li> tags
 def coppa():
-	child = soup.find_all('p', string=re.compile("child"))
-	for items in child:
+	childp = soup.find_all('p', string=re.compile("child"))
+	for items in childp:
 		print(items.text.strip())
 
-# To get and print <p></p> tags with the word collect in them
+	coppali = soup.find_all('li')
+	for item in coppali:
+		items = str(item.text.strip())
+		if 'child' in items:
+			print(items)
+
 def p1():
-	collect = soup.find_all('p', string=re.compile("collect"))
-	for item in collect:
+	collectp = soup.find_all('p', string=re.compile("collect"))
+	for item in collectp:
 		print(item.text.strip())
 
-# To get and print <p></p> tags with the word protect in them
+	p1li = soup.find_all('li')
+	for item in p1li:
+		items = str(item.text.strip())
+		if 'collect' in items:
+			print(items)
+
+def p2():
+	usep = soup.find_all('p', string = re.compile("use "))
+	for item in usep:
+		print(item.text.strip())
+
+	p2li = soup.find_all('li')
+	for item in p2li:
+		items = str(item.text.strip())
+		if 'use ' in items:
+			print(items)
+
+def p3():
+	storep = soup.find_all('p', string = re.compile("store"))
+	for item in storep:
+		print(item.text.strip())
+
+	p3li = soup.find_all('li')
+	for item in p3li:
+		items = str(item.text.strip())
+		if 'store' in items:
+			print(items)
+
 def p4():
-	protect = soup.find_all('p', string=re.compile("protect"))
-	for item in protect:
+	protectp = soup.find_all('p', string=re.compile("protect"))
+	for item in protectp:
 		print(item.text.strip())
 
-# To get and print <p></p> tags with the word share in them
+	p4li = soup.find_all('li')
+	for item in p4li:
+		items = str(item.text.strip())
+		if 'protect' in items:
+			print(items)
+
 def p5():
-	share = soup.find_all('p', string=re.compile("share"))
-	party = soup.find_all('p', string=re.compile("third part"))
-	for item in share:
+	sharep = soup.find_all('p', string=re.compile("share"))
+	thirdp = soup.find_all('p', string=re.compile("third part"))
+	for item in sharep:
 		print(item.text.strip())
-	for item in party:
+	for item in thirdp:
 		print(item.text.strip())
 
-# To get and print <li></li> tags	
-	third = soup.find_all('li')
-	for item in third:
+	p5li = soup.find_all('li')
+	for item in p5li:
 		items = str(item.text.strip())
 		if 'third part' in items:
 			print(items)
-
+		if 'share' in items:
+			print(items)
 
 def main():
-	return(contact(),coppa(),p1(),p4(),p5())
+	return(contact(),coppa(),p1(),p2(),p3(),p4(),p5())
 main()
