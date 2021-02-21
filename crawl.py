@@ -22,7 +22,7 @@ def contact():
 	    if 'mailto:' in links:
 	    	print(links)
 
-# To get and print <p>&<li> tags
+# To get and print <p>&<li>&<td> tags
 def coppa():
 	childp = soup.find_all('p', string=re.compile("child"))
 	for items in childp:
@@ -33,6 +33,12 @@ def coppa():
 		items = str(item.text.strip())
 		if 'child' in items:
 			print(items)
+	
+	coppatd = soup.find_all('td')
+	for item in coppatd:
+		items = str(item.text.strip())
+		if 'store' in items:
+			print(items)
 
 def p1():
 	collectp = soup.find_all('p', string=re.compile("collect"))
@@ -41,6 +47,12 @@ def p1():
 
 	p1li = soup.find_all('li')
 	for item in p1li:
+		items = str(item.text.strip())
+		if 'collect' in items:
+			print(items)
+
+	p1td = soup.find_all('td')
+	for item in p1td:
 		items = str(item.text.strip())
 		if 'collect' in items:
 			print(items)
@@ -56,6 +68,12 @@ def p2():
 		if 'use ' in items:
 			print(items)
 
+	p2td = soup.find_all('td')
+	for item in p2td:
+		items = str(item.text.strip())
+		if 'use ' in items:
+			print(items)
+
 def p3():
 	storep = soup.find_all('p', string = re.compile("store"))
 	for item in storep:
@@ -63,6 +81,12 @@ def p3():
 
 	p3li = soup.find_all('li')
 	for item in p3li:
+		items = str(item.text.strip())
+		if 'store' in items:
+			print(items)
+
+	p3td = soup.find_all('td')
+	for item in p3td:
 		items = str(item.text.strip())
 		if 'store' in items:
 			print(items)
@@ -77,6 +101,12 @@ def p4():
 		items = str(item.text.strip())
 		if 'protect' in items:
 			print(items)
+	
+	p4td = soup.find_all('td')
+	for item in p4td:
+		items = str(item.text.strip())
+		if 'protect' in items:
+			print(items)
 
 def p5():
 	sharep = soup.find_all('p', string=re.compile("share"))
@@ -88,6 +118,14 @@ def p5():
 
 	p5li = soup.find_all('li')
 	for item in p5li:
+		items = str(item.text.strip())
+		if 'third part' in items:
+			print(items)
+		if 'share' in items:
+			print(items)
+
+	p5td = soup.find_all('td')
+	for item in p5td:
 		items = str(item.text.strip())
 		if 'third part' in items:
 			print(items)
