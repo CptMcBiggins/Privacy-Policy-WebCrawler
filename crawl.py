@@ -19,6 +19,7 @@ scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/au
 creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json', scope)
 client = gspread.authorize(creds)
 sheet = client.open("Test Sheet").sheet1
+
 # To get and print contact links from privacy policy
 def contact():
 
@@ -38,27 +39,30 @@ def contact():
 # To get and print <p>&<li>&<td> tags
 def coppa():
 	childp = soup.find_all('p', string = re.compile("child"))
-	for items in childp:
-		if items is not None:
-			g1 = (items.text.strip())
-		else:
-			g1 = ""
+	for item in childp:
+		if item is not None:
+			g1 = (item.text.strip())
+			if item is None:
+				g1 = "None"
+			return g1
 
 	coppali = soup.find_all('li')
 	for item in coppali:
 		items = str(item.text.strip())
 		if 'child' in items:
 			g2 = str(items)
-		else: 
-			g2 = ""
+			if 'child' not in items: 
+				g2 = "None"
+			return g1
 	
 	coppatd = soup.find_all('td')
 	for item in coppatd:
 		items = str(item.text.strip())
 		if 'child' in items:
 			g3 = str(items)
-		else:
-			g3 = ""
+			if 'child' not in items:
+				g3 = "None"
+			return g3
 
 	g4 = g1 + g2 + g3
 	active_cell = sheet.findall(URL)
@@ -74,24 +78,27 @@ def p1():
 	for item in collectp:
 		if item is not None:
 			g1 = (item.text.strip())
-		else:
-			g1 = ""
+			if item is None:
+				g1 = "None"
+			return g1
 
 	p1li = soup.find_all('li')
 	for item in p1li:
 		items = str(item.text.strip())
 		if 'collect' in items:
 			g2 = str(items)
-		else:
-			g2 = ""
+			if 'collect' not in items:
+				g2 = "None"
+			return g2	
 
 	p1td = soup.find_all('td')
 	for item in p1td:
 		items = str(item.text.strip())
 		if 'collect' in items:
 			g3 = str(items)
-		else:
-			g3 = ""
+			if 'collect' not in items:
+				g3 = "None"
+			return g3
 	
 	g4 = g1 + g2 + g3
 	active_cell = sheet.findall(URL)
@@ -107,24 +114,27 @@ def p2():
 	for item in usep:
 		if item is not None:
 			g1 = (item.text.strip())
-		else:
-			g1 = ""
+			if item is None:
+				g1 = "None"
+			return g1
 
 	p2li = soup.find_all('li')
 	for item in p2li:
 		items = str(item.text.strip())
 		if 'use ' in items:
 			g2 = str(items)
-		else:
-			g2 = ""
+			if 'use ' not in items:
+				g2 = "None"
+			return g2
 
 	p2td = soup.find_all('td')
 	for item in p2td:
 		items = str(item.text.strip())
 		if 'use ' in items:
 			g3 = str(items)
-		else:
-			g3 =""
+			if 'use ' not in items:
+				g3 ="None"
+			return g3
 
 	g4 = g1 + g2 + g3
 	active_cell = sheet.findall(URL)
@@ -140,24 +150,27 @@ def p3():
 	for item in storep:
 		if item is not None:
 			g1 = (item.text.strip())
-		else:
-			g1 = ""
+			if item is None:
+				g1 = "None"
+			return g1
 
 	p3li = soup.find_all('li')
 	for item in p3li:
 		items = str(item.text.strip())
 		if 'store' in items:
 			g2 = str(items)
-		else:
-			g2 = ""
+			if 'store' not in items:
+				g2 = "None"
+			return g2
 
 	p3td = soup.find_all('td')
 	for item in p3td:
 		items = str(item.text.strip())
 		if 'store' in items:
 			g3 = str(items)
-		else:
-			g3 = ""
+			if 'store' not in items:
+				g3 = "None"
+			return g3
 
 	g4 = g1 + g2 + g3
 	active_cell = sheet.findall(URL)
@@ -173,24 +186,27 @@ def p4():
 	for item in protectp:
 		if item is not None:
 			g1 = (item.text.strip())
-		else:
-			g1 = ""
+			if item is None:
+				g1 = "None"
+			return g1
 
 	p4li = soup.find_all('li')
 	for item in p4li:
 		items = str(item.text.strip())
 		if 'protect' in items:
 			g2 = str(items)
-		else:
-			g2 = ""
+			if 'protect' not in items:
+				g2 = "None"
+			return g2
 	
 	p4td = soup.find_all('td')
 	for item in p4td:
 		items = str(item.text.strip())
 		if 'protect' in items:
 			g3 = (items)
-		else:
-			g3 = ""
+			if 'protect' not in items:
+				g3 = "None"
+			return g3
 
 	g4 = g1 + g2 + g3
 	active_cell = sheet.findall(URL)
@@ -207,37 +223,43 @@ def p5():
 	for item in sharep:
 		if item is not None:
 			g1 = (item.text.strip())
-		else:
-			g1 = ""
+			if item is None:
+				g1 = "None"
+				return g1
 	for item in thirdp:
 		if item is not None:
 			g2 = (item.text.strip())
-		else:
-			g2 = ""
+			if item is None:
+				g2 = "None"
+				return g2
 
 	p5li = soup.find_all('li')
 	for item in p5li:
 		items = str(item.text.strip())
-		if 'third part' in items:
+		if 'third part ' in items:
 			g3 = str(items)
-		else:
-			g3 = ""
+			if 'third part ' not in items:
+				g3 = "None"
+			return g3
 		if 'share' in items:
 			g4 = (items)
-		else:
-			g4 = ""
+			if 'share' not in items:
+				g4 = "None"
+			return g4
 
 	p5td = soup.find_all('td')
 	for item in p5td:
 		items = str(item.text.strip())
-		if 'third part' in items:
+		if 'third part ' not in items:
 			g5 = str(items)
-		else:
-			g5 = ""
+			if 'third part ' not in items:
+				g5 = "None"
+			return g5
 		if 'share' in items:
 			g6 = str(items)
-		else:
-			g6 = ""
+			if 'share' not in items:
+				g6 = "None"
+			return g6
 
 	g7 = g1 + g2 + g3 + g4 + g5 + g6
 	active_cell = sheet.findall(URL)
