@@ -46,7 +46,15 @@ def main():
 			if 'child' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
-				results_list.append(super_clean)	
+				results_list.append(super_clean)
+
+		coppasp = soup.find_all('span')
+		for i in coppasp:
+			results = str(i.text.strip())
+			if 'child' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
 
 		listToStr = ' '.join([str(i) for i in results_list])
 		active_cell = sheet.findall(URL)
@@ -83,7 +91,15 @@ def main():
 			if 'collect' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
-				results_list.append(super_clean)	
+				results_list.append(super_clean)
+
+		p1sp = soup.find_all('span')
+		for i in p1sp:
+			results = str(i.text.strip())
+			if 'collect' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
 
 		listToStr = ' '.join([str(i) for i in results_list])
 		active_cell = sheet.findall(URL)
@@ -120,7 +136,15 @@ def main():
 			if 'use ' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
-				results_list.append(super_clean)	
+				results_list.append(super_clean)
+
+		p2sp = soup.find_all('span')
+		for i in p2sp:
+			results = str(i.text.strip())
+			if 'use ' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
 
 		listToStr = ' '.join([str(i) for i in results_list])
 		active_cell = sheet.findall(URL)
@@ -153,6 +177,14 @@ def main():
 
 		p3td = soup.find_all('td')
 		for i in p3td:
+			results = str(i.text.strip())
+			if 'store' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
+
+		p3sp = soup.find_all('span')
+		for i in p3sp:
 			results = str(i.text.strip())
 			if 'store' in results:
 				clean = str(results.replace("\n",","))
@@ -194,7 +226,15 @@ def main():
 			if 'protect' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
-				results_list.append(super_clean)	
+				results_list.append(super_clean)
+
+		p4sp = soup.find_all('span')
+		for i in p4sp:
+			results = str(i.text.strip())
+			if 'protect' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
 
 		listToStr = ' '.join([str(i) for i in results_list])
 		active_cell = sheet.findall(URL)
@@ -242,7 +282,19 @@ def main():
 			if 'third part' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
-				results_list.append(super_clean)		
+				results_list.append(super_clean)
+
+		p5sp = soup.find_all('span')
+		for i in p5sp:
+			results = str(i.text.strip())
+			if 'share' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
+			if 'third part' in results:
+				clean = str(results.replace("\n",","))
+				super_clean = re.sub("[  ] ", "", clean)
+				results_list.append(super_clean)
 
 		listToStr = ' '.join([str(i) for i in results_list])
 		active_cell = sheet.findall(URL)
