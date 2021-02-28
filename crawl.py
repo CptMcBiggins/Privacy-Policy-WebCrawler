@@ -12,7 +12,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 #args = parser.parse_args()
 
 #URL = args.u
-URL = ''
+URL = 'https://bookcreator.com/pp-us/'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -56,7 +56,12 @@ def main():
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
 
-		listToStr = ' '.join([str(i) for i in results_list])
+		clean_list = []
+		for i in results_list:
+			if i not in clean_list:
+				clean_list.append(i)
+
+		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
 			url_row = i.row
@@ -101,7 +106,12 @@ def main():
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
 
-		listToStr = ' '.join([str(i) for i in results_list])
+		clean_list = []
+		for i in results_list:
+			if i not in clean_list:
+				clean_list.append(i)
+
+		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
 			url_row = i.row
@@ -146,7 +156,12 @@ def main():
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
 
-		listToStr = ' '.join([str(i) for i in results_list])
+		clean_list = []
+		for i in results_list:
+			if i not in clean_list:
+				clean_list.append(i)
+
+		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
 			url_row = i.row
@@ -189,9 +204,14 @@ def main():
 			if 'store' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
-				results_list.append(super_clean)	
+				results_list.append(super_clean)
 
-		listToStr = ' '.join([str(i) for i in results_list])
+		clean_list = []
+		for i in results_list:
+			if i not in clean_list:
+				clean_list.append(i)
+
+		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
 			url_row = i.row
@@ -236,7 +256,12 @@ def main():
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
 
-		listToStr = ' '.join([str(i) for i in results_list])
+		clean_list = []
+		for i in results_list:
+			if i not in clean_list:
+				clean_list.append(i)
+
+		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
 			url_row = i.row
@@ -295,8 +320,14 @@ def main():
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
+		
+		clean_list = []
+		for i in results_list:
+			if i not in clean_list:
+				clean_list.append(i)
+		print(len(clean_list))
 
-		listToStr = ' '.join([str(i) for i in results_list])
+		listToStr = ' --- '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
 			url_row = i.row
