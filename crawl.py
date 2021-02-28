@@ -325,7 +325,6 @@ def main():
 		for i in results_list:
 			if i not in clean_list:
 				clean_list.append(i)
-		print(len(clean_list))
 
 		listToStr = ' --- '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
