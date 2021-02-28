@@ -12,7 +12,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 #args = parser.parse_args()
 
 #URL = args.u
-URL = 'https://bookcreator.com/pp-us/'
+URL = ''
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
