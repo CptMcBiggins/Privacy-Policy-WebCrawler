@@ -12,7 +12,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 #args = parser.parse_args()
 
 #URL = args.u
-URL = ''
+URL = 'https://anchor.fm/privacy'
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
@@ -21,6 +21,9 @@ client = gspread.authorize(creds)
 sheet = client.open("Test Sheet").sheet1
 
 def main():
+	
+	total_risk_score = []
+
 	def coppa():
 		results_list = []
 		
@@ -72,15 +75,19 @@ def main():
 		if len(clean_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(clean_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(clean_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(clean_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
+			total_risk_score.append(high)
 
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
@@ -151,16 +158,20 @@ def main():
 		if len(clean_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(clean_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(clean_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(clean_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
-
+			total_risk_score.append(high)
+		
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
 		pprs = int("".join(pprisk))
@@ -185,7 +196,7 @@ def main():
 		p2p = soup.find_all('p')
 		for i in p2p:
 			results = str(i.text.strip())
-			if 'use ' in results:
+			if ' use ' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
@@ -193,7 +204,7 @@ def main():
 		p2li = soup.find_all('li')
 		for i in p2li:
 			results = str(i.text.strip())
-			if 'use ' in results:
+			if ' use ' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)	
@@ -201,7 +212,7 @@ def main():
 		p2td = soup.find_all('td')
 		for i in p2td:
 			results = str(i.text.strip())
-			if 'use ' in results:
+			if ' use ' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
@@ -209,7 +220,7 @@ def main():
 		p2sp = soup.find_all('span')
 		for i in p2sp:
 			results = str(i.text.strip())
-			if 'use ' in results:
+			if ' use ' in results:
 				clean = str(results.replace("\n",","))
 				super_clean = re.sub("[  ] ", "", clean)
 				results_list.append(super_clean)
@@ -231,16 +242,20 @@ def main():
 		if len(clean_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(clean_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(clean_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(clean_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
-
+			total_risk_score.append(high)
+		
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
 		pprs = int("".join(pprisk))
@@ -310,16 +325,20 @@ def main():
 		if len(clean_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(clean_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(clean_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(clean_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
-
+			total_risk_score.append(high)
+		
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
 		pprs = int("".join(pprisk))
@@ -389,16 +408,20 @@ def main():
 		if len(clean_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(clean_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(clean_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(clean_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
-
+			total_risk_score.append(high)
+		
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
 		pprs = int("".join(pprisk))
@@ -483,16 +506,20 @@ def main():
 		if len(clean_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(clean_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(clean_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(clean_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
-
+			total_risk_score.append(high)
+		
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
 		pprs = int("".join(pprisk))
@@ -536,16 +563,20 @@ def main():
 		if len(email_list) == 0:
 			str_rs.append(zero)
 			str_r.append("Unacceptable Risk")
+			total_risk_score.append(zero)
 		elif len(email_list) <= 15:
 			str_rs.append(low)
 			str_r.append("Low Risk")
+			total_risk_score.append(low)
 		elif len(email_list) <= 30:
 			str_rs.append(medium)
 			str_r.append("Medium Risk")
+			total_risk_score.append(medium)
 		elif len(email_list) > 30:
 			str_rs.append(high)
 			str_r.append("High Risk")
-
+			total_risk_score.append(high)
+		
 		ppstr = ' '.join([str(i) for i in str_r])
 		pprisk = [str(i) for i in str_rs]
 		pprs = int("".join(pprisk))
@@ -564,4 +595,21 @@ def main():
 		sheet.update(pp_risk_str, ppstr)
 		sheet.update(pp_risk_score, pprs)
 	contact()
+
+	def rs():
+		active_cell = sheet.findall(URL)
+		for i in active_cell:
+			url_row = i.row
+			row_str = str(url_row)	
+
+		risk_score = sum(total_risk_score)/7
+		total = 100
+		total_dec = round(risk_score/total, 2)
+		pprp = "{0:.0%}".format(total_dec)
+
+		active_row = 'AH' + row_str
+		sheet.update(active_row, total_dec)
+		active_row = 'AI' + row_str
+		sheet.update(active_row, pprp)
+	rs()
 main()
