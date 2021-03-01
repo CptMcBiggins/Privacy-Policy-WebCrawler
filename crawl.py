@@ -60,6 +60,31 @@ def main():
 		for i in results_list:
 			if i not in clean_list:
 				clean_list.append(i)
+		
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(clean_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(clean_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(clean_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(clean_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
 
 		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
@@ -68,7 +93,11 @@ def main():
 			row_str = str(url_row)	
 
 		active_row = 'G' + row_str
+		pp_risk_str = 'T' + row_str
+		pp_risk_score = 'U' + row_str
 		sheet.update(active_row, listToStr)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	coppa()
 
 	def p1():
@@ -111,6 +140,31 @@ def main():
 			if i not in clean_list:
 				clean_list.append(i)
 
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(clean_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(clean_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(clean_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(clean_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
+
 		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
@@ -118,7 +172,11 @@ def main():
 			row_str = str(url_row)	
 		
 		active_row = 'H' + row_str
+		pp_risk_str = 'V' + row_str
+		pp_risk_score = 'W' + row_str
 		sheet.update(active_row, listToStr)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	p1()
 	
 	def p2():
@@ -161,6 +219,32 @@ def main():
 			if i not in clean_list:
 				clean_list.append(i)
 
+
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(clean_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(clean_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(clean_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(clean_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
+
 		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
@@ -168,7 +252,11 @@ def main():
 			row_str = str(url_row)	
 
 		active_row = 'I' + row_str
+		pp_risk_str = 'X' + row_str
+		pp_risk_score = 'Y' + row_str
 		sheet.update(active_row, listToStr)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	p2()
 
 	def p3():
@@ -211,6 +299,31 @@ def main():
 			if i not in clean_list:
 				clean_list.append(i)
 
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(clean_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(clean_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(clean_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(clean_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
+
 		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
@@ -218,7 +331,11 @@ def main():
 			row_str = str(url_row)	
 
 		active_row = 'J' + row_str
+		pp_risk_str = 'Z' + row_str
+		pp_risk_score = 'AA' + row_str
 		sheet.update(active_row, listToStr)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	p3()
 
 	def p4():
@@ -261,6 +378,31 @@ def main():
 			if i not in clean_list:
 				clean_list.append(i)
 
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(clean_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(clean_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(clean_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(clean_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
+
 		listToStr = ' '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
@@ -268,7 +410,11 @@ def main():
 			row_str = str(url_row)	
 
 		active_row = 'K' + row_str
+		pp_risk_str = 'AB' + row_str
+		pp_risk_score = 'AC' + row_str
 		sheet.update(active_row, listToStr)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	p4()
 
 	def p5():
@@ -326,6 +472,31 @@ def main():
 			if i not in clean_list:
 				clean_list.append(i)
 
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(clean_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(clean_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(clean_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(clean_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
+
 		listToStr = ' --- '.join([str(i) for i in clean_list])
 		active_cell = sheet.findall(URL)
 		for i in active_cell:
@@ -333,7 +504,11 @@ def main():
 			row_str = str(url_row)	
 
 		active_row = 'L' + row_str
+		pp_risk_str = 'AD' + row_str
+		pp_risk_score = 'AE' + row_str
 		sheet.update(active_row, listToStr)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	p5()
 	
 	def contact():
@@ -349,6 +524,31 @@ def main():
 		for i in contact_list:
 			if i not in email_list:
 				email_list.append(i)
+
+		str_rs = []
+		str_r = []
+		
+		low = 0
+		medium = 30
+		high = 50
+		zero = 100
+
+		if len(email_list) == 0:
+			str_rs.append(zero)
+			str_r.append("Unacceptable Risk")
+		elif len(email_list) <= 15:
+			str_rs.append(low)
+			str_r.append("Low Risk")
+		elif len(email_list) <= 30:
+			str_rs.append(medium)
+			str_r.append("Medium Risk")
+		elif len(email_list) > 30:
+			str_rs.append(high)
+			str_r.append("High Risk")
+
+		ppstr = ' '.join([str(i) for i in str_r])
+		pprisk = [str(i) for i in str_rs]
+		pprs = int("".join(pprisk))
 	
 		listToStr = ', '.join([str(i) for i in email_list])
 		clean = str(listToStr.replace("mailto:", ""))
@@ -358,6 +558,10 @@ def main():
 			row_str = str(url_row)	
 	
 		active_row = 'M' + row_str
+		pp_risk_str = 'AF' + row_str
+		pp_risk_score = 'AG' + row_str
 		sheet.update(active_row, clean)
+		sheet.update(pp_risk_str, ppstr)
+		sheet.update(pp_risk_score, pprs)
 	contact()
 main()
