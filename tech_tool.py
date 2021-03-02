@@ -216,9 +216,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(clean_list) == 0:
                         str_rs.append(zero)
@@ -299,9 +299,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(clean_list) == 0:
                         str_rs.append(zero)
@@ -383,9 +383,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(clean_list) == 0:
                         str_rs.append(zero)
@@ -466,9 +466,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(clean_list) == 0:
                         str_rs.append(zero)
@@ -549,9 +549,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(clean_list) == 0:
                         str_rs.append(zero)
@@ -647,9 +647,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(clean_list) == 0:
                         str_rs.append(zero)
@@ -704,9 +704,9 @@ def main():
                 str_r = []
                 
                 low = 0
-                medium = 30
-                high = 50
-                zero = 100
+                medium = 50
+                high = 100
+                zero = 280
 
                 if len(email_list) == 0:
                         str_rs.append(zero)
@@ -745,10 +745,11 @@ def main():
         contact()
 
         def rs():
+
                 active_cell = sheet.findall(URL)
                 for i in active_cell:
                         url_row = i.row
-                        row_str = str(url_row)  
+                        row_str = str(url_row)
 
                 risk_score = sum(total_risk_score)/7
                 total = 100
@@ -767,7 +768,7 @@ def main():
                         grade = "C"
                 elif super_total <= .80:
                         grade = "D"
-                elif super_total <= 1:
+                elif super_total <= 2:
                         grade = "F"
 
                 active_row = 'AB' + row_str
