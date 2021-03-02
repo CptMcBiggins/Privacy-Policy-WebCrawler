@@ -7,12 +7,11 @@ import argparse
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
-#parser = argparse.ArgumentParser(description='Privacy Policy Automation')
-#parser.add_argument('-u', help='Privacy Policy URL', required=True)
-#args = parser.parse_args()
+parser = argparse.ArgumentParser(description='Privacy Policy Automation')
+parser.add_argument('-u', help='Privacy Policy URL', required=True)
+args = parser.parse_args()
 
-#URL = args.u
-URL = 'https://anchor.fm/privacy'
+URL = args.u
 page = requests.get(URL)
 soup = BeautifulSoup(page.content, 'html.parser')
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
