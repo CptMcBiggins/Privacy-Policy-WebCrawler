@@ -25,6 +25,7 @@ final_list = []
 
 def main():
         def u1():
+                print("Running Usage Section 1 Evaluation")
                 a, l = "Collaboration (student-student, student-teacher, teacher-teacher)", 28
                 b, m = "Communication (audio/video, presentation tools, social media-like)", 18
                 c, n = "Creativity (art, books)", 9
@@ -63,6 +64,7 @@ def main():
         u1()    
 
         def u2():
+                print("Running Usage Section 2 Evaluation")
                 a, e = "Teachers", 49
                 b, f = "Students", 42
                 c, g = "Non-Teaching Staff", 63
@@ -94,6 +96,7 @@ def main():
         u2()    
 
         def u3():
+                print("Running Usage Section 3 Evaluation")
                 a, d = "No account needed/access with class or invite code", 3
                 b, e = "SSO Login with Google or Microsoft (i.e., school login)", 60
                 c, f = "Separate account needed", 42
@@ -124,6 +127,7 @@ def main():
         u3()    
 
         def u4():
+                print("Running Usage Section 4 Evaluation")
                 a, e = "Primary (PK-2)", 35
                 b, f = "Elementary (3-5)", 49
                 c, g = "Middle School/Junior High (6-8)", 56
@@ -155,6 +159,7 @@ def main():
         u4()    
 
         def ut():
+                print("Running Total Usage Evaluation")
                 active_cell = sheet.findall(URL)
                 for i in active_cell:
                         url_row = i.row
@@ -173,8 +178,8 @@ def main():
         ut()
 
         def coppa():
+                print("Running Privacy Policy COPPA Evaluation")
                 results_list = []
-                
                 coppap = soup.find_all('p')
                 for i in coppap:
                         results = str(i.text.strip())
@@ -256,8 +261,8 @@ def main():
         coppa()
 
         def p1():
+                print("Running Privacy Policy Section 1 Evaluation")
                 results_list = []
-
                 p1p = soup.find_all('p')
                 for i in p1p:
                         results = str(i.text.strip())
@@ -339,8 +344,8 @@ def main():
         p1()
         
         def p2():
+                print("Running Privacy Policy Section 2 Evaluation")
                 results_list = []
-                
                 p2p = soup.find_all('p')
                 for i in p2p:
                         results = str(i.text.strip())
@@ -423,8 +428,8 @@ def main():
         p2()
 
         def p3():
+                print("Running Privacy Policy Section 3 Evaluation")
                 results_list = []
-                
                 p3p = soup.find_all('p')
                 for i in p3p:
                         results = str(i.text.strip())
@@ -506,8 +511,8 @@ def main():
         p3()
 
         def p4():
+                print("Running Privacy Policy Section 4 Evaluation")
                 results_list = []
-                
                 p4p = soup.find_all('p')
                 for i in p4p:
                         results = str(i.text.strip())
@@ -589,6 +594,7 @@ def main():
         p4()
 
         def p5():
+                print("Running Privacy Policy Section 5 Evaluation")
                 results_list = []
                 p5p = soup.find_all('p')
                 for i in p5p:
@@ -687,6 +693,7 @@ def main():
         p5()
         
         def contact():
+                print("Running Privacy Policy Contact Evaluation")
                 contact_list = []
                 link = soup.find_all('a')
                 for i in link:
@@ -745,7 +752,7 @@ def main():
         contact()
 
         def rs():
-
+                print("Running Privacy Policy Total Risk Evaluation")
                 active_cell = sheet.findall(URL)
                 for i in active_cell:
                         url_row = i.row
@@ -781,3 +788,4 @@ def main():
                 sheet.update(active_row, grade)
         rs()
 main()
+print("Evaluation Finished!")
