@@ -787,5 +787,12 @@ def main():
                 active_row = 'L' + row_str
                 sheet.update(active_row, grade)
         rs()
+        active_cell = sheet.findall(URL)
+        for i in active_cell:
+                url_row = i.row
+                row_str = str(url_row)
+
+        active_row = 'K' + row_str
+        sheet.update(active_row,"Pending Manual Review")
 main()
 print("Evaluation Finished!")
