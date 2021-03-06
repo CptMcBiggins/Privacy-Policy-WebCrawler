@@ -187,11 +187,19 @@ def main():
                                 clean = str(results.replace("\n",","))
                                 super_clean = re.sub("[  ] ", "", clean)
                                 results_list.append(super_clean)
+                        if 'under 1' in results:
+                                clean = str(results.replace("\n",","))
+                                super_clean = re.sub("[  ] ", "", clean)
+                                results_list.append(super_clean)
 
                 coppali = soup.find_all('li')
                 for i in coppali:
                         results = str(i.text.strip())
                         if 'child' in results:
+                                clean = str(results.replace("\n",","))
+                                super_clean = re.sub("[  ] ", "", clean)
+                                results_list.append(super_clean)
+                        if 'under 1' in results:
                                 clean = str(results.replace("\n",","))
                                 super_clean = re.sub("[  ] ", "", clean)
                                 results_list.append(super_clean)
@@ -203,11 +211,19 @@ def main():
                                 clean = str(results.replace("\n",","))
                                 super_clean = re.sub("[  ] ", "", clean)
                                 results_list.append(super_clean)
+                        if 'under 1' in results:
+                                clean = str(results.replace("\n",","))
+                                super_clean = re.sub("[  ] ", "", clean)
+                                results_list.append(super_clean)
 
                 coppasp = soup.find_all('span')
                 for i in coppasp:
                         results = str(i.text.strip())
                         if 'child' in results:
+                                clean = str(results.replace("\n",","))
+                                super_clean = re.sub("[  ] ", "", clean)
+                                results_list.append(super_clean)
+                        if 'under 1' in results:
                                 clean = str(results.replace("\n",","))
                                 super_clean = re.sub("[  ] ", "", clean)
                                 results_list.append(super_clean)
@@ -768,15 +784,15 @@ def main():
                 super_per = "{0:.0%}".format(super_total)
 
                 if super_total <= .20:
-                        grade = "A"
+                        grade = "A - The application has little risk and would generally recommend."
                 elif super_total <= .40:
-                        grade = "B"
+                        grade = "B - The application has some risk but would generally recommend."
                 elif super_total <= .60:
-                        grade = "C"
+                        grade = "C - The application has some risk and would recommend caution when using the application."
                 elif super_total <= .80:
-                        grade = "D"
+                        grade = "D - The application has serious risk with use and would recommend limited use of the application."
                 elif super_total <= 2:
-                        grade = "F"
+                        grade = "F - Would not recommend the application and would suggest using another application instead."
 
                 active_row = 'AB' + row_str
                 sheet.update(active_row, total_dec)
