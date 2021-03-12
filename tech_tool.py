@@ -99,9 +99,11 @@ def main():
                 print("Running Usage Section 3 Evaluation")
                 a, d = "No account needed/access with class or invite code", 3
                 b, e = "SSO Login with Google or Microsoft (i.e., school login)", 60
-                c, f = "Separate account needed", 42
-                list1 = [a,b,c]
-                list2 = [d,e,f]
+                c, f = "Separate account needed", 42 
+                g, h = "N/A-Teacher use only", 15
+
+                list1 = [a,b,c,g]
+                list2 = [d,e,f,h]
                 
                 active_cell = sheet.findall(URL)
                 for i in active_cell:
@@ -132,8 +134,11 @@ def main():
                 b, f = "Elementary (3-5)", 49
                 c, g = "Middle School/Junior High (6-8)", 56
                 d, h = "High School (9-12)", 72
-                list1 = [a,b,c,d]
-                list2 = [e,f,g,h]       
+                i, j = "N/A-Teacher use only", 15
+
+
+                list1 = [a,b,c,d,i]
+                list2 = [e,f,g,h,j]       
 
                 active_cell = sheet.findall(URL)
                 for i in active_cell:
@@ -166,7 +171,7 @@ def main():
                         row_str = str(url_row)  
 
                 utaverage = round(sum(utlist)/4, 2)
-                utmaxav = 195.75
+                utmaxav = 203.25
                 utdec = round(utaverage/utmaxav, 2)
                 final_list.append(utdec)
                 utper = "{0:.0%}".format(utdec) 
