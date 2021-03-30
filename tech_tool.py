@@ -100,7 +100,7 @@ def main():
                 a, d = "No account needed/access with class or invite code", 3
                 b, e = "SSO Login with Google or Microsoft (i.e., school login)", 60
                 c, f = "Separate account needed", 42 
-                g, h = "N/A-Teacher use only", 15
+                g, h = "N/A--Teacher use only", 15
 
                 list1 = [a,b,c,g]
                 list2 = [d,e,f,h]
@@ -772,6 +772,58 @@ def main():
                 sheet.update(pp_risk_score, pprs)
         contact()
 
+        def date():
+                from datetime import date
+                print("Running Last Updated Evaluation")
+                today = date.today()
+                date_today = today.strftime("%m/%d/%Y")
+                m = int(date_today [:2])
+                d = int(date_today [3:5])
+                y = int(date_today [6:10])
+
+                active_cell = sheet.findall(URL)
+                for i in active_cell:
+                        url_row = i.row
+                        row_str = str(url_row)
+
+                active_row = 'AS' + row_str
+                current_row = sheet.get(active_row)
+                current_row_str = str(current_row)
+                clean = current_row_str.replace("[","")
+                clean1 = clean.replace("]","")
+                clean2 = clean1.replace("'","")
+
+                form_date = clean2
+                m1 = int(form_date [:2])
+                d1 = int(form_date [3:5])
+                y1 = int(form_date [6:10])
+
+                d0 = date(y,m,d)
+                d00 = date(y1,m1,d1)
+                delta = d0 -d00
+                delta_days = delta.days
+                number_of_days = delta_days
+
+                if number_of_days <= 180:
+                        time_score = 0
+                elif number_of_days <= 365:
+                        time_score = 50
+                elif number_of_days <= 545:
+                        time_score = 100
+                elif number_of_days <= 730:
+                        time_score = 150
+                elif number_of_days > 730:
+                        time_score = 200
+
+                final_time_score = time_score/100
+                final_list.append(final_time_score)
+
+                active_row = 'AT' + row_str
+                sheet.update(active_row, number_of_days)
+                active_row = 'AU' + row_str
+                sheet.update(active_row, time_score)
+        date()
+
         def rs():
                 print("Running Privacy Policy Total Risk Evaluation")
                 active_cell = sheet.findall(URL)
@@ -785,7 +837,7 @@ def main():
                 final_list.append(total_dec)
                 pprp = "{0:.0%}".format(total_dec)
 
-                super_total = sum(final_list)/2
+                super_total = sum(final_list)/3
                 super_per = "{0:.0%}".format(super_total)
 
                 if super_total <= .20:
